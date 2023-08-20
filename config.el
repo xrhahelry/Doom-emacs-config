@@ -35,7 +35,7 @@
       :desc "Comment or uncomment lines"      "TAB TAB" #'comment-line)
 
 (set-face-attribute 'mode-line nil :font "JetBrains Mono-13")
-(setq doom-modeline-height 30     ;; sets modeline height
+(setq doom-modeline-height 40     ;; sets modeline height
       doom-modeline-bar-width 8   ;; sets right bar width
       doom-modeline-persp-name t  ;; adds perspective name to modeline
       doom-modeline-persp-icon t) ;; adds folder icon next to persp name
