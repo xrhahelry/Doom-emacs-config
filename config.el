@@ -1,4 +1,4 @@
-(setq doom-theme 'gruber-darker)
+(setq doom-theme 'doom-one)
 
 (setq doom-font (font-spec :family "JetBrains Mono" :size 20)
       doom-variable-pitch-font (font-spec :family "Fira Sans" :size 15)
@@ -27,8 +27,8 @@
   (setq org-directory "c:/Users/N I T R O 5/Documents/Org/"
         org-default-notes-file (expand-file-name "notes.org" org-directory)
         org-ellipsis " ▼ "
-        ;;org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆")
-        ;;org-superstar-itembullet-alist '((?+ . ?➤) (?- . ?✦)) ; changes +/- symbols in item lists
+        org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆")
+        org-superstar-itembullet-alist '((?+ . ?➤) (?- . ?✦)) ; changes +/- symbols in item lists
         ))
 
 (map! :leader

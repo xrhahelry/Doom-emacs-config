@@ -1,3 +1,20 @@
+#+TITLE: Doom Emacs Config
+#+AUTHOR: Sujal Bajracharya
+#+STARTUP: showeverything
+#+OPTIONS: toc:2
+#+PROPERTY: header-args :tangle config.el
+
+* Table of Contents :toc:
+- [[#theme][Theme]]
+- [[#font][Font]]
+- [[#cursor][Cursor]]
+- [[#line-numbers][Line Numbers]]
+- [[#org][Org]]
+- [[#comment-or-uncomment-lines][Comment or Uncomment lines]]
+- [[#modeline][Modeline]]
+- [[#terminal-emacs-mouse-support][Terminal emacs mouse support]]
+- [[#better-splits][Better Splits]]
+
 * Theme
 #+begin_src emacs-lisp
 (setq doom-theme 'gruber-darker)
@@ -16,6 +33,9 @@
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic))
 #+end_src
+
+#+RESULTS:
+| doom--customize-themes-h-28 | doom--customize-themes-h-30 | doom--customize-themes-h-31 |
 
 * Cursor
 #+begin_src emacs-lisp
@@ -41,25 +61,38 @@
   (setq org-directory "c:/Users/N I T R O 5/Documents/Org/"
         org-default-notes-file (expand-file-name "notes.org" org-directory)
         org-ellipsis " ▼ "
-        ;;org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆")
-        ;;org-superstar-itembullet-alist '((?+ . ?➤ ) (?- . ?✦ )) ; changes +/- symbols in item lists
+        org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆")
+        ;; org-superstar-itembullet-alist '((?+ . ?➤) (?- . ?✦)) ; changes +/- symbols in item lists
         ))
+
 #+end_src
 
+* Comment or Uncomment lines
+#+begin_src emacs-lisp
 (map! :leader
       :desc "Comment or uncomment lines"      "TAB TAB" #'comment-line)
+#+end_src
 
+* Modeline
+#+begin_src emacs-lisp
 (set-face-attribute 'mode-line nil :font "JetBrains Mono-13")
 (setq doom-modeline-height 40     ;; sets modeline height
       doom-modeline-bar-width 8   ;; sets right bar width
       doom-modeline-persp-name t  ;; adds perspective name to modeline
       doom-modeline-persp-icon t) ;; adds folder icon next to persp name
+#+end_src
 
+* Terminal emacs mouse support
+#+begin_src emacs-lisp
 (xterm-mouse-mode 1)
+#+end_src
 
+* Better Splits
+#+begin_src emacs-lisp
 (defun prefer-horizontal-split ()
   (set-variable 'split-height-threshold nil t)
   (set-variable 'split-width-threshold 40 t)) ; make this as low as needed
 (add-hook 'markdown-mode-hook 'prefer-horizontal-split)
 (map! :leader
       :desc "Clone indirect buffer other window" "b c" #'clone-indirect-buffer-other-window)
+#+end_src
