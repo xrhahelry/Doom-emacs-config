@@ -1,7 +1,7 @@
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-palenight)
 
-(setq doom-font (font-spec :family "JetBrains Mono" :size 20)
-      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 15)
+(setq doom-font (font-spec :family "JetBrains Mono" :size 20 :weight 'light)
+      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 15 :weight 'light)
       doom-big-font (font-spec :family "JetBrains Mono" :size 24))
 
 (after! doom-themes
@@ -21,21 +21,31 @@
 
 (setq display-line-numbers-type 'relative)
 
+(setq-default tab-width 2)
+(setq-default evil-shift-width tab-width)
+
 (map! :leader
       :desc "Org babel tangle" "m B" #'org-babel-tangle)
 (after! org
+  (setq inhibit-compacting-font-caches t)
+  (custom-set-faces
+    '(org-level-1 ((t (:inherit outline-1 :height 1.4))))
+    '(org-level-2 ((t (:inherit outline-2 :height 1.3))))
+    '(org-level-3 ((t (:inherit outline-3 :height 1.2))))
+    '(org-level-4 ((t (:inherit outline-4 :height 1.1))))
+    '(org-level-5 ((t (:inherit outline-5 :height 1.0)))))
   (setq org-directory "c:/Users/N I T R O 5/Documents/Org/"
         org-default-notes-file (expand-file-name "notes.org" org-directory)
         org-ellipsis " ▼ "
         org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆")
-        org-superstar-itembullet-alist '((?+ . ?➤) (?- . ?✦)) ; changes +/- symbols in item lists
+        org-superstar-item-bullet-alist '((?+ . ?✦) (?- . ?➤)) ; changes +/- symbols in item lists
         ))
 
 (map! :leader
       :desc "Comment or uncomment lines"      "TAB TAB" #'comment-line)
 
 (set-face-attribute 'mode-line nil :font "JetBrains Mono-13")
-(setq doom-modeline-height 40     ;; sets modeline height
+(setq doom-modeline-height 50     ;; sets modeline height
       doom-modeline-bar-width 8   ;; sets right bar width
       doom-modeline-persp-name t  ;; adds perspective name to modeline
       doom-modeline-persp-icon t) ;; adds folder icon next to persp name
