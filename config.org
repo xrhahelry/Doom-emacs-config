@@ -1,5 +1,10 @@
+* Theme
+#+begin_src emacs-lisp
 (setq doom-theme 'gruber-darker)
+#+end_src
 
+* Font
+#+begin_src emacs-lisp
 (setq doom-font (font-spec :family "JetBrains Mono" :size 20)
       doom-variable-pitch-font (font-spec :family "Fira Sans" :size 15)
       doom-big-font (font-spec :family "JetBrains Mono" :size 24))
@@ -10,7 +15,10 @@
 (custom-set-faces!
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic))
+#+end_src
 
+* Cursor
+#+begin_src emacs-lisp
 (setq evil-default-cursor       'box
       evil-normal-state-cursor  'box
       evil-emacs-state-cursor   'box
@@ -18,9 +26,15 @@
       evil-insert-state-cursor  'box
       evil-visual-state-cursor  'box
       evil-replace-state-cursor 'box)
+#+end_src
 
+* Line Numbers
+#+begin_src emacs-lisp
 (setq display-line-numbers-type 'relative)
+#+end_src
 
+* Org
+#+begin_src emacs-lisp
 (map! :leader
       :desc "Org babel tangle" "m B" #'org-babel-tangle)
 (after! org
@@ -28,8 +42,9 @@
         org-default-notes-file (expand-file-name "notes.org" org-directory)
         org-ellipsis " ▼ "
         ;;org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆")
-        ;;org-superstar-itembullet-alist '((?+ . ?➤) (?- . ?✦)) ; changes +/- symbols in item lists
+        ;;org-superstar-itembullet-alist '((?+ . ?➤ ) (?- . ?✦ )) ; changes +/- symbols in item lists
         ))
+#+end_src
 
 (map! :leader
       :desc "Comment or uncomment lines"      "TAB TAB" #'comment-line)
