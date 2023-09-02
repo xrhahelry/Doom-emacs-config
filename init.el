@@ -24,7 +24,7 @@
        company           ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
-       (ivy +fonts)               ; a search engine for love and life
+       ivy               ; a search engine for love and life
        vertico           ; the search engine of the future
 
        :ui
@@ -32,11 +32,11 @@
        doom              ; what makes DOOM look the way it does
        doom-dashboard    ; a nifty splash screen for Emacs
        ;; doom-quit         ; DOOM quit-message prompts when you quit Emacs
-       emoji ; 🙂
+       ;; emoji ; 🙂
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        ;;hydra
-       indent-guides     ; highlighted indent columns
-       (ligatures +extras)         ; ligatures and symbols to make your code pretty again
+       ;; indent-guides     ; highlighted indent columns
+       ;; (ligatures +extras)         ; ligatures and symbols to make your code pretty again
        ;; minimap           ; show a map of the code on the side
        modeline          ; snazzy, Atom-inspired modeline, plus API
        ;; nav-flash         ; blink cursor line after big motions
@@ -96,7 +96,7 @@
        (eval +overlay)     ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
-       lsp               ; M-x vscode
+       ;; lsp               ; M-x vscode
        magit             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
