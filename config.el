@@ -24,10 +24,20 @@
 (setq-default tab-width 2)
 (setq-default evil-shift-width tab-width)
 
-;; (define-key evil-normal-state-map (kbd "^") (kbd "H"))
-;; (define-key evil-normal-state-map (kbd "$") (kbd "L"))
-;; (define-key evil-visual-state-map (kbd "^") (kbd "H"))
-;; (define-key evil-visual-state-map (kbd "$") (kbd "L"))
+(xterm-mouse-mode 1)
+
+(defun prefer-horizontal-split ()
+  (set-variable 'split-height-threshold nil t)
+  (set-variable 'split-width-threshold 40 t)) ; make this as low as needed
+(add-hook 'markdown-mode-hook 'prefer-horizontal-split)
+
+(define-key evil-normal-state-map (kbd "H") (kbd "^"))
+(define-key evil-normal-state-map (kbd "L") (kbd "$"))
+(define-key evil-visual-state-map (kbd "H") (kbd "^"))
+(define-key evil-visual-state-map (kbd "L") (kbd "$"))
+
+(map! :leader
+      :desc "Comment or uncomment lines" "TAB TAB" #'comment-line)
 
 (map! :leader
       :desc "Org babel tangle" "m B" #'org-babel-tangle)
@@ -44,21 +54,23 @@
     '(org-level-8 ((t (:inherit outline-8 :height 1.0)))))
   (setq org-directory "c:/Users/N I T R O 5/Documents/Org/"
         org-default-notes-file (expand-file-name "notes.org" org-directory)
-        org-ellipsis " ▼ "
+        org-ellipsis " ▼"
         org-superstar-headline-bullets-list '("◉" "●" "◆" "○" "●" "◆" "○")
-        org-superstar-item-bullet-alist '((?+ . ?✦) (?- . ?➤)) ; changes +/- symbols in item lists
-        ))
+        org-superstar-item-bullet-alist '((?+ . ?✦) (?- . ?➤))))
 
 (add-hook 'org-mode-hook
       (lambda ()
         (toggle-truncate-lines nil) ))
 
-(map! :leader
-      :desc "Comment or uncomment lines"      "TAB TAB" #'comment-line)
+(after! org
+  (setq org-agenda-files '("c:/Users/N I T R O 5/Documents/Org/agenda.org")
+        org-agenda-start-with-log-mode t
+        org-log-done 'time
+        org-log-into-drawer t))
 
 (set-face-attribute 'mode-line nil :font "Cascadia Code-15")
 (setq doom-modeline-height 40     ;; sets modeline height
-      doom-modeline-bar-width 5   ;; sets right bar width
+      doom-modeline-bar-width 6   ;; sets right bar width
       doom-modeline-persp-name t  ;; adds perspective name to modeline
       doom-modeline-persp-icon t  ;; adds folder icon next to persp name when set to t
       doom-modeline-buffer-file-name-style 'truncate-except-project ;; almost full path to file
@@ -67,18 +79,9 @@
       doom-modeline-major-mode-icon nil
       doom-modeline-highlight-modified-buffer-name nil
       doom-modeline-modal nil
-      doom-modeline-modal-icon nil
-      doom-modeline-battery t
-      doom-modeline-time t)
+      doom-modeline-modal-icon nil)
 (after! doom-modeline
   (remove-hook 'doom-modeline-mode-hook #'size-indication-mode) ; filesize in modeline
   (remove-hook 'doom-modeline-mode-hook #'column-number-mode)   ; cursor column in modeline
   (line-number-mode -1)
-  (setq doom-modeline-buffer-encoding nil))
-
-(xterm-mouse-mode 1)
-
-(defun prefer-horizontal-split ()
-  (set-variable 'split-height-threshold nil t)
-  (set-variable 'split-width-threshold 40 t)) ; make this as low as needed
-(add-hook 'markdown-mode-hook 'prefer-horizontal-split)
+  (setq doom-modeline-buffer-encoding t))
