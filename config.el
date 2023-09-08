@@ -64,7 +64,6 @@
 
 (after! org
   (setq org-agenda-files '("c:/Users/N I T R O 5/Documents/Org/agenda.org")
-        org-agenda-start-with-log-mode t
         org-log-done 'time
         org-log-into-drawer t))
 
@@ -74,14 +73,53 @@
       doom-modeline-persp-name t  ;; adds perspective name to modeline
       doom-modeline-persp-icon t  ;; adds folder icon next to persp name when set to t
       doom-modeline-buffer-file-name-style 'truncate-except-project ;; almost full path to file
-      doom-modeline-buffer-modification-icon nil ;; removes icon next to file path when file is changed
-      doom-modeline-project-detection 'project ;; does something when working in a project
+      doom-modeline-project-detection 'project ;; finds project root folder
       doom-modeline-major-mode-icon nil
+      doom-modeline-buffer-modification-icon t ;; removes icon next to file path when file is changed when set to nil
       doom-modeline-highlight-modified-buffer-name nil
       doom-modeline-modal nil
-      doom-modeline-modal-icon nil)
+      doom-modeline-modal-icon nil
+      doom-modeline-enable-word-count nil)
 (after! doom-modeline
   (remove-hook 'doom-modeline-mode-hook #'size-indication-mode) ; filesize in modeline
   (remove-hook 'doom-modeline-mode-hook #'column-number-mode)   ; cursor column in modeline
   (line-number-mode -1)
   (setq doom-modeline-buffer-encoding t))
+
+(map! :leader
+      (:prefix ("d" . "dired")
+       :desc "Open dired" "d" #'dired
+       :desc "Dired jump to current" "j" #'dired-jump)
+      (:after dired
+       (:map dired-mode-map
+        :desc "Peep-dired image previews" "d p" #'peep-dired
+        :desc "Dired view file"           "d v" #'dired-view-file)))
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+
+(evil-define-key 'normal dired-mode-map
+  (kbd "M-RET") 'dired-display-file
+  (kbd "h") 'dired-up-directory
+  (kbd "l") 'dired-find-file ; use dired-find-file instead of dired-open.
+  (kbd "m") 'dired-mark
+  (kbd "t") 'dired-toggle-marks
+  (kbd "u") 'dired-unmark
+  (kbd "C") 'dired-do-copy
+  (kbd "D") 'dired-do-delete
+  (kbd "J") 'dired-goto-file
+  (kbd "M") 'dired-do-chmod
+  (kbd "O") 'dired-do-chown
+  (kbd "P") 'dired-do-print
+  (kbd "R") 'dired-do-rename
+  (kbd "T") 'dired-do-touch
+  (kbd "Y") 'dired-copy-filenamecopy-filename-as-kill ; copies filename to kill ring.
+  (kbd "Z") 'dired-do-compress
+  (kbd "+") 'dired-create-directory
+  (kbd "-") 'dired-do-kill-lines
+  (kbd "% l") 'dired-downcase
+  (kbd "% m") 'dired-mark-files-regexp
+  (kbd "% u") 'dired-upcase
+  (kbd "* %") 'dired-mark-files-regexp
+  (kbd "* .") 'dired-mark-extension
+  (kbd "* /") 'dired-mark-directories
+  (kbd "; d") 'epa-dired-do-decrypt
+  (kbd "; e") 'epa-dired-do-encrypt)
