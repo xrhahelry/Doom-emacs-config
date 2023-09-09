@@ -40,6 +40,9 @@
       :desc "Comment or uncomment lines" "TAB TAB" #'comment-line)
 
 (map! :leader
+      :desc "Toggle word wrap in org" "m w" #'toggle-truncate-lines)
+
+(map! :leader
       :desc "Org babel tangle" "m B" #'org-babel-tangle)
 (after! org
   (setq inhibit-compacting-font-caches t)
@@ -60,19 +63,25 @@
 
 (add-hook 'org-mode-hook
       (lambda ()
-        (toggle-truncate-lines nil) ))
+        (toggle-truncate-lines nil)))
+
+(after! org
+  (setq org-startup-with-inline-images t))
 
 (after! org
   (setq org-agenda-files '("c:/Users/N I T R O 5/Documents/Org/agenda.org")
         org-log-done 'time
         org-log-into-drawer t))
 
+;; (after! org
+;;   (setq org-preview-latex-process-alist ))
+
 (set-face-attribute 'mode-line nil :font "Cascadia Code-15")
 (setq doom-modeline-height 40     ;; sets modeline height
       doom-modeline-bar-width 6   ;; sets right bar width
       doom-modeline-persp-name t  ;; adds perspective name to modeline
       doom-modeline-persp-icon t  ;; adds folder icon next to persp name when set to t
-      doom-modeline-buffer-file-name-style 'truncate-except-project ;; almost full path to file
+      doom-modeline-buffer-file-name-style 'truncate-upto-project ;; almost full path to file
       doom-modeline-project-detection 'project ;; finds project root folder
       doom-modeline-major-mode-icon nil
       doom-modeline-buffer-modification-icon t ;; removes icon next to file path when file is changed when set to nil

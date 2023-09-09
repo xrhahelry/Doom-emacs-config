@@ -16,10 +16,13 @@
 - [[#keybindings][Keybindings]]
   - [[#line-start-or-end][Line start or end]]
   - [[#comment-or-uncomment-lines][Comment or Uncomment lines]]
+  - [[#word-wrapping-in-org-mode][Word wrapping in org mode]]
 - [[#org][Org]]
   - [[#basic-config][Basic Config]]
   - [[#word-wrapping-in-source-blocks][Word wrapping in source blocks]]
+  - [[#inline-images][Inline images]]
   - [[#org-agenda][Org Agenda]]
+  - [[#latex-preview][Latex Preview]]
 - [[#modeline][Modeline]]
 - [[#dired][Dired]]
   - [[#basic-dired-config][Basic dired config]]
@@ -99,6 +102,11 @@
       :desc "Comment or uncomment lines" "TAB TAB" #'comment-line)
 #+end_src
 
+** Word wrapping in org mode
+#+begin_src emacs-lisp
+(map! :leader
+      :desc "Toggle word wrap in org" "m w" #'toggle-truncate-lines)
+#+end_src
 
 * Org
 ** Basic Config
@@ -127,7 +135,13 @@
 #+begin_src emacs-lisp
 (add-hook 'org-mode-hook
       (lambda ()
-        (toggle-truncate-lines nil) ))
+        (toggle-truncate-lines nil)))
+#+end_src
+
+** Inline images
+#+begin_src emacs-lisp
+(after! org
+  (setq org-startup-with-inline-images t))
 #+end_src
 
 ** Org Agenda
@@ -138,6 +152,12 @@
         org-log-into-drawer t))
 #+end_src
 
+** Latex Preview
+#+begin_src emacs-lisp
+;; (after! org
+;;   (setq org-preview-latex-process-alist ))
+#+end_src
+
 * Modeline
 #+begin_src emacs-lisp
 (set-face-attribute 'mode-line nil :font "Cascadia Code-15")
@@ -145,7 +165,7 @@
       doom-modeline-bar-width 6   ;; sets right bar width
       doom-modeline-persp-name t  ;; adds perspective name to modeline
       doom-modeline-persp-icon t  ;; adds folder icon next to persp name when set to t
-      doom-modeline-buffer-file-name-style 'truncate-except-project ;; almost full path to file
+      doom-modeline-buffer-file-name-style 'truncate-upto-project ;; almost full path to file
       doom-modeline-project-detection 'project ;; finds project root folder
       doom-modeline-major-mode-icon nil
       doom-modeline-buffer-modification-icon t ;; removes icon next to file path when file is changed when set to nil
