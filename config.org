@@ -17,6 +17,7 @@
   - [[#line-start-or-end][Line start or end]]
   - [[#comment-or-uncomment-lines][Comment or Uncomment lines]]
   - [[#word-wrapping-in-org-mode][Word wrapping in org mode]]
+  - [[#switch-buffers][Switch buffers]]
 - [[#org][Org]]
   - [[#basic-config][Basic Config]]
   - [[#word-wrapping-in-source-blocks][Word wrapping in source blocks]]
@@ -111,6 +112,12 @@
       :desc "Toggle word wrap in org" "m w" #'toggle-truncate-lines)
 #+end_src
 
+** Switch buffers
+#+begin_src emacs-lisp
+(map! :leader
+      :desc "Switch buffers" "b ." #'ivy-switch-buffer)
+#+end_src
+
 * Org
 ** Basic Config
 #+begin_src emacs-lisp
@@ -176,8 +183,10 @@
 
 ** Dashboard config
 #+begin_src emacs-lisp
-(setq dashboard-banner-logo-title "Welcome to Emacs")
+(setq dashboard-banner-logo-title "There is no system but GNU, and Linux is one of its kernels")
 (setq dashboard-startup-banner 'logo)
+(setq dashboard-icon-type 'all-the-icons)
+(setq dashboard-set-file-icons t)
 (setq dashboard-center-content t)
 (setq dashboard-items '((recents  . 3)
                         (agenda . 5)

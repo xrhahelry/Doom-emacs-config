@@ -43,6 +43,9 @@
       :desc "Toggle word wrap in org" "m w" #'toggle-truncate-lines)
 
 (map! :leader
+      :desc "Switch buffers" "b ." #'ivy-switch-buffer)
+
+(map! :leader
       :desc "Org babel tangle" "m B" #'org-babel-tangle)
 (after! org
   (setq inhibit-compacting-font-caches t)
@@ -83,8 +86,10 @@
 
 (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
 
-(setq dashboard-banner-logo-title "Welcome to Emacs")
+(setq dashboard-banner-logo-title "There is no system but GNU, and Linux is one of its kernels")
 (setq dashboard-startup-banner 'logo)
+(setq dashboard-icon-type 'all-the-icons)
+(setq dashboard-set-file-icons t)
 (setq dashboard-center-content t)
 (setq dashboard-items '((recents  . 3)
                         (agenda . 5)
