@@ -76,6 +76,21 @@
 ;; (after! org
 ;;   (setq org-preview-latex-process-alist ))
 
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook))
+
+(setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
+
+(setq dashboard-banner-logo-title "Welcome to Emacs")
+(setq dashboard-startup-banner 'logo)
+(setq dashboard-center-content t)
+(setq dashboard-items '((recents  . 3)
+                        (agenda . 5)
+                        (bookmarks . 5)
+                        (projects . 3)))
+
 (set-face-attribute 'mode-line nil :font "Cascadia Code-15")
 (setq doom-modeline-height 40     ;; sets modeline height
       doom-modeline-bar-width 6   ;; sets right bar width

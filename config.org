@@ -23,6 +23,9 @@
   - [[#inline-images][Inline images]]
   - [[#org-agenda][Org Agenda]]
   - [[#latex-preview][Latex Preview]]
+- [[#dashboard][Dashboard]]
+  - [[#dashboard-for-daemon][Dashboard for daemon]]
+  - [[#dashboard-config][Dashboard config]]
 - [[#modeline][Modeline]]
 - [[#dired][Dired]]
   - [[#basic-dired-config][Basic dired config]]
@@ -156,6 +159,30 @@
 #+begin_src emacs-lisp
 ;; (after! org
 ;;   (setq org-preview-latex-process-alist ))
+#+end_src
+
+* Dashboard
+#+begin_src emacs-lisp
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook))
+#+end_src
+
+** Dashboard for daemon
+#+begin_src emacs-lisp
+(setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
+#+end_src
+
+** Dashboard config
+#+begin_src emacs-lisp
+(setq dashboard-banner-logo-title "Welcome to Emacs")
+(setq dashboard-startup-banner 'logo)
+(setq dashboard-center-content t)
+(setq dashboard-items '((recents  . 3)
+                        (agenda . 5)
+                        (bookmarks . 5)
+                        (projects . 3)))
 #+end_src
 
 * Modeline
