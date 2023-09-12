@@ -86,15 +86,19 @@
 
 (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
 
+(setq dashboard-startup-banner 'logo) ;; nil / 'logo / 'official / 1 to 4 / "path"
 (setq dashboard-banner-logo-title "There is no system but GNU, and Linux is one of its kernels")
-(setq dashboard-startup-banner 'logo)
 (setq dashboard-icon-type 'all-the-icons)
 (setq dashboard-set-file-icons t)
 (setq dashboard-center-content t)
 (setq dashboard-items '((recents  . 3)
                         (agenda . 5)
                         (bookmarks . 5)
-                        (projects . 3)))
+                        (projects . 5)))
+(setq dashboard-footer-icon (all-the-icons-fileicon "emacs"
+                                                   :height 1.1
+                                                   :v-adjust -0.05
+                                                   :face 'font-lock-keyword-face))
 
 (set-face-attribute 'mode-line nil :font "Cascadia Code-15")
 (setq doom-modeline-height 40     ;; sets modeline height
