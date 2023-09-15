@@ -25,8 +25,8 @@
   - [[#org-agenda][Org Agenda]]
   - [[#latex-preview][Latex Preview]]
 - [[#dashboard][Dashboard]]
-  - [[#dashboard-for-daemon][Dashboard for daemon]]
   - [[#dashboard-config][Dashboard config]]
+  - [[#dashboard-for-daemon][Dashboard for daemon]]
 - [[#modeline][Modeline]]
 - [[#dired][Dired]]
   - [[#basic-dired-config][Basic dired config]]
@@ -164,8 +164,7 @@
 
 ** Latex Preview
 #+begin_src emacs-lisp
-;; (after! org
-;;   (setq org-preview-latex-process-alist ))
+;; (setq org-preview-latex-process-alist "dvipng")
 #+end_src
 
 * Dashboard
@@ -174,11 +173,6 @@
   :ensure t
   :config
   (dashboard-setup-startup-hook))
-#+end_src
-
-** Dashboard for daemon
-#+begin_src emacs-lisp
-(setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
 #+end_src
 
 ** Dashboard config
@@ -197,6 +191,15 @@
                                                    :v-adjust -0.05
                                                    :face 'font-lock-keyword-face))
 #+end_src
+
+** Dashboard for daemon
+#+begin_src emacs-lisp
+(setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
+
+(if (< (length command-line-args) 2)
+  (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*"))))
+#+end_src
+
 
 * Modeline
 #+begin_src emacs-lisp

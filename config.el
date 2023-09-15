@@ -76,15 +76,12 @@
         org-log-done 'time
         org-log-into-drawer t))
 
-;; (after! org
-;;   (setq org-preview-latex-process-alist ))
+;; (setq org-preview-latex-process-alist "dvipng")
 
 (use-package dashboard
   :ensure t
   :config
   (dashboard-setup-startup-hook))
-
-(setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
 
 (setq dashboard-startup-banner 'logo) ;; nil / 'logo / 'official / 1 to 4 / "path"
 (setq dashboard-banner-logo-title "There is no system but GNU, and Linux is one of its kernels")
@@ -99,6 +96,11 @@
                                                    :height 1.1
                                                    :v-adjust -0.05
                                                    :face 'font-lock-keyword-face))
+
+(setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
+
+(if (< (length command-line-args) 2)
+  (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*"))))
 
 (set-face-attribute 'mode-line nil :font "Cascadia Code-15")
 (setq doom-modeline-height 40     ;; sets modeline height
