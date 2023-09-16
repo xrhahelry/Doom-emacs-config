@@ -99,9 +99,6 @@
 
 (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
 
-(if (< (length command-line-args) 2)
-  (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*"))))
-
 (set-face-attribute 'mode-line nil :font "Cascadia Code-15")
 (setq doom-modeline-height 40     ;; sets modeline height
       doom-modeline-bar-width 6   ;; sets right bar width
@@ -120,6 +117,16 @@
   (remove-hook 'doom-modeline-mode-hook #'column-number-mode)   ; cursor column in modeline
   (line-number-mode -1)
   (setq doom-modeline-buffer-encoding t))
+
+(use-package time
+  :ensure nil
+  :hook (after-init . display-time-mode)
+  :custom
+  (display-time-default-load-average nil))
+
+;; (use-package battery
+;;   :ensure nil
+;;   :hook (after-init . display-battery-mode))
 
 (map! :leader
       (:prefix ("d" . "dired")

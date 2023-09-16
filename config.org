@@ -28,6 +28,9 @@
   - [[#dashboard-config][Dashboard config]]
   - [[#dashboard-for-daemon][Dashboard for daemon]]
 - [[#modeline][Modeline]]
+  - [[#doom-modeline-configs][Doom modeline configs]]
+  - [[#clock][Clock]]
+  - [[#battery][Battery]]
 - [[#dired][Dired]]
   - [[#basic-dired-config][Basic dired config]]
   - [[#evil-dired-keybindings][Evil dired keybindings]]
@@ -195,13 +198,14 @@
 ** Dashboard for daemon
 #+begin_src emacs-lisp
 (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
-
-(if (< (length command-line-args) 2)
-  (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*"))))
 #+end_src
+
+#+RESULTS:
+| lambda | nil | (get-buffer-create *dashboard*) |
 
 
 * Modeline
+** Doom modeline configs
 #+begin_src emacs-lisp
 (set-face-attribute 'mode-line nil :font "Cascadia Code-15")
 (setq doom-modeline-height 40     ;; sets modeline height
@@ -222,6 +226,25 @@
   (line-number-mode -1)
   (setq doom-modeline-buffer-encoding t))
 #+end_src
+
+** Clock
+#+begin_src emacs-lisp
+(use-package time
+  :ensure nil
+  :hook (after-init . display-time-mode)
+  :custom
+  (display-time-default-load-average nil))
+#+end_src
+
+** Battery
+#+begin_src emacs-lisp
+;; (use-package battery
+;;   :ensure nil
+;;   :hook (after-init . display-battery-mode))
+#+end_src
+
+#+RESULTS:
+| doom-init-fonts-h | doom-init-theme-h | org-persist-load-all | display-time-mode | (closure (t) nil (dashboard-insert-startupify-lists)) | doom-init-local-var-hooks-h | doom--reset-inhibited-vars-h | w32-check-shell-configuration | tramp-register-archive-autoload-file-name-handler | magit-maybe-define-global-key-bindings |
 
 * Dired
 ** Basic dired config
