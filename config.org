@@ -11,7 +11,6 @@
   - [[#cursor][Cursor]]
   - [[#line-numbers][Line Numbers]]
   - [[#tab-size][Tab size]]
-  - [[#terminal-emacs-mouse-support][Terminal emacs mouse support]]
   - [[#better-splits][Better Splits]]
 - [[#keybindings][Keybindings]]
   - [[#line-start-or-end][Line start or end]]
@@ -23,14 +22,9 @@
   - [[#word-wrapping-in-source-blocks][Word wrapping in source blocks]]
   - [[#inline-images][Inline images]]
   - [[#org-agenda][Org Agenda]]
-  - [[#latex-preview][Latex Preview]]
-- [[#dashboard][Dashboard]]
-  - [[#dashboard-config][Dashboard config]]
-  - [[#dashboard-for-daemon][Dashboard for daemon]]
 - [[#modeline][Modeline]]
   - [[#doom-modeline-configs][Doom modeline configs]]
   - [[#clock][Clock]]
-  - [[#battery][Battery]]
 - [[#dired][Dired]]
   - [[#basic-dired-config][Basic dired config]]
   - [[#evil-dired-keybindings][Evil dired keybindings]]
@@ -78,11 +72,6 @@
 #+begin_src emacs-lisp
 (setq-default tab-width 2)
 (setq-default evil-shift-width tab-width)
-#+end_src
-
-** Terminal emacs mouse support
-#+begin_src emacs-lisp
-(xterm-mouse-mode 1)
 #+end_src
 
 ** Better Splits
@@ -165,45 +154,6 @@
         org-log-into-drawer t))
 #+end_src
 
-** Latex Preview
-#+begin_src emacs-lisp
-;; (setq org-preview-latex-process-alist "dvipng")
-#+end_src
-
-* Dashboard
-#+begin_src emacs-lisp
-(use-package dashboard
-  :ensure t
-  :config
-  (dashboard-setup-startup-hook))
-#+end_src
-
-** Dashboard config
-#+begin_src emacs-lisp
-(setq dashboard-startup-banner 'logo) ;; nil / 'logo / 'official / 1 to 4 / "path"
-(setq dashboard-banner-logo-title "There is no system but GNU, and Linux is one of its kernels")
-(setq dashboard-icon-type 'all-the-icons)
-(setq dashboard-set-file-icons t)
-(setq dashboard-center-content t)
-(setq dashboard-items '((recents  . 3)
-                        (agenda . 5)
-                        (bookmarks . 5)
-                        (projects . 5)))
-(setq dashboard-footer-icon (all-the-icons-fileicon "emacs"
-                                                   :height 1.1
-                                                   :v-adjust -0.05
-                                                   :face 'font-lock-keyword-face))
-#+end_src
-
-** Dashboard for daemon
-#+begin_src emacs-lisp
-(setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
-#+end_src
-
-#+RESULTS:
-| lambda | nil | (get-buffer-create *dashboard*) |
-
-
 * Modeline
 ** Doom modeline configs
 #+begin_src emacs-lisp
@@ -235,16 +185,6 @@
   :custom
   (display-time-default-load-average nil))
 #+end_src
-
-** Battery
-#+begin_src emacs-lisp
-;; (use-package battery
-;;   :ensure nil
-;;   :hook (after-init . display-battery-mode))
-#+end_src
-
-#+RESULTS:
-| doom-init-fonts-h | doom-init-theme-h | org-persist-load-all | display-time-mode | (closure (t) nil (dashboard-insert-startupify-lists)) | doom-init-local-var-hooks-h | doom--reset-inhibited-vars-h | w32-check-shell-configuration | tramp-register-archive-autoload-file-name-handler | magit-maybe-define-global-key-bindings |
 
 * Dired
 ** Basic dired config

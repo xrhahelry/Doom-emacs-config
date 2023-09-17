@@ -24,8 +24,6 @@
 (setq-default tab-width 2)
 (setq-default evil-shift-width tab-width)
 
-(xterm-mouse-mode 1)
-
 (defun prefer-horizontal-split ()
   (set-variable 'split-height-threshold nil t)
   (set-variable 'split-width-threshold 40 t)) ; make this as low as needed
@@ -76,29 +74,6 @@
         org-log-done 'time
         org-log-into-drawer t))
 
-;; (setq org-preview-latex-process-alist "dvipng")
-
-(use-package dashboard
-  :ensure t
-  :config
-  (dashboard-setup-startup-hook))
-
-(setq dashboard-startup-banner 'logo) ;; nil / 'logo / 'official / 1 to 4 / "path"
-(setq dashboard-banner-logo-title "There is no system but GNU, and Linux is one of its kernels")
-(setq dashboard-icon-type 'all-the-icons)
-(setq dashboard-set-file-icons t)
-(setq dashboard-center-content t)
-(setq dashboard-items '((recents  . 3)
-                        (agenda . 5)
-                        (bookmarks . 5)
-                        (projects . 5)))
-(setq dashboard-footer-icon (all-the-icons-fileicon "emacs"
-                                                   :height 1.1
-                                                   :v-adjust -0.05
-                                                   :face 'font-lock-keyword-face))
-
-(setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
-
 (set-face-attribute 'mode-line nil :font "Cascadia Code-15")
 (setq doom-modeline-height 40     ;; sets modeline height
       doom-modeline-bar-width 6   ;; sets right bar width
@@ -123,10 +98,6 @@
   :hook (after-init . display-time-mode)
   :custom
   (display-time-default-load-average nil))
-
-;; (use-package battery
-;;   :ensure nil
-;;   :hook (after-init . display-battery-mode))
 
 (map! :leader
       (:prefix ("d" . "dired")
