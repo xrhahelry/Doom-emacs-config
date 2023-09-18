@@ -86,7 +86,8 @@
       doom-modeline-highlight-modified-buffer-name nil
       doom-modeline-modal nil
       doom-modeline-modal-icon nil
-      doom-modeline-enable-word-count nil)
+      doom-modeline-enable-word-count nil
+      doom-modeline-time-icon t)
 (after! doom-modeline
   (remove-hook 'doom-modeline-mode-hook #'size-indication-mode) ; filesize in modeline
   (remove-hook 'doom-modeline-mode-hook #'column-number-mode)   ; cursor column in modeline
