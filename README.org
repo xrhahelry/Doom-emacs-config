@@ -1,4 +1,4 @@
-#+TITLE: Doom Emacs Config
+#+TITLE: XRhahelry's Doom Emacs Config
 #+AUTHOR: Sujal Bajracharya
 #+STARTUP: showeverything
 #+OPTIONS: toc:2
@@ -17,6 +17,7 @@
   - [[#comment-or-uncomment-lines][Comment or Uncomment lines]]
   - [[#word-wrapping-in-org-mode][Word wrapping in org mode]]
   - [[#switch-buffers][Switch buffers]]
+  - [[#tab-bar][Tab Bar]]
 - [[#org][Org]]
   - [[#basic-config][Basic Config]]
   - [[#word-wrapping-in-source-blocks][Word wrapping in source blocks]]
@@ -29,6 +30,7 @@
 - [[#dired][Dired]]
   - [[#basic-dired-config][Basic dired config]]
   - [[#evil-dired-keybindings][Evil dired keybindings]]
+- [[#smex][Smex]]
 
 * Editor
 ** Theme
@@ -83,7 +85,6 @@
 (add-hook 'markdown-mode-hook 'prefer-horizontal-split)
 #+end_src
 
-
 * Keybindings
 ** Line start or end
 #+begin_src emacs-lisp
@@ -109,6 +110,12 @@
 #+begin_src emacs-lisp
 (map! :leader
       :desc "Switch buffers" "b ." #'ivy-switch-buffer)
+#+end_src
+
+** Tab Bar
+#+begin_src emacs-lisp
+(map! :leader
+      :desc "Toggle tab bar" "t t" #'centaur-tabs-mode)
 #+end_src
 
 * Org
@@ -236,4 +243,9 @@
   (kbd "* /") 'dired-mark-directories
   (kbd "; d") 'epa-dired-do-decrypt
   (kbd "; e") 'epa-dired-do-encrypt)
+#+end_src
+
+* Smex
+#+begin_src emacs-lisp
+(map! "C-;" #'smex)
 #+end_src

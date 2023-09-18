@@ -44,6 +44,9 @@
       :desc "Switch buffers" "b ." #'ivy-switch-buffer)
 
 (map! :leader
+      :desc "Toggle tab bar" "t t" #'centaur-tabs-mode)
+
+(map! :leader
       :desc "Org babel tangle" "m B" #'org-babel-tangle)
 (after! org
   (setq inhibit-compacting-font-caches t)
@@ -139,3 +142,5 @@
   (kbd "* /") 'dired-mark-directories
   (kbd "; d") 'epa-dired-do-decrypt
   (kbd "; e") 'epa-dired-do-encrypt)
+
+(map! "C-;" #'smex)
