@@ -86,8 +86,7 @@
       doom-modeline-highlight-modified-buffer-name nil
       doom-modeline-modal nil
       doom-modeline-modal-icon nil
-      doom-modeline-enable-word-count nil
-      doom-modeline-time-icon t)
+      doom-modeline-enable-word-count nil)
 (after! doom-modeline
   (remove-hook 'doom-modeline-mode-hook #'size-indication-mode) ; filesize in modeline
   (remove-hook 'doom-modeline-mode-hook #'column-number-mode)   ; cursor column in modeline
@@ -100,6 +99,9 @@
   :custom
   (display-time-default-load-average nil))
 
+(use-package battery :ensure nil
+  :hook (after-init . display-battery-mode))
+
 (map! :leader
       (:prefix ("d" . "dired")
        :desc "Open dired" "d" #'dired
@@ -108,7 +110,7 @@
        (:map dired-mode-map
         :desc "Peep-dired image previews" "d p" #'peep-dired
         :desc "Dired view file"           "d v" #'dired-view-file)))
-(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+(add-hook 'dired-mode-hook 'nerd-icons-dired-mode)
 
 (evil-define-key 'normal dired-mode-map
   (kbd "M-RET") 'dired-display-file
