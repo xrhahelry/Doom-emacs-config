@@ -1,6 +1,6 @@
 (setq doom-theme 'doom-one)
 
-(setq doom-font (font-spec :family "Iosevka" :size 23 :weight 'light)
+(setq doom-font (font-spec :family "Iosevka" :size 23 :weight 'medium)
       doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 15 :weight 'light)
       doom-big-font (font-spec :family "Iosevka" :size 28))
 
@@ -77,9 +77,9 @@
         org-log-done 'time
         org-log-into-drawer t))
 
-(set-face-attribute 'mode-line nil :font "JetBrains Mono-17")
-(setq doom-modeline-height 40     ;; sets modeline height
-      doom-modeline-bar-width 6   ;; sets right bar width
+(set-face-attribute 'mode-line nil :font "JetBrains Mono")
+(setq doom-modeline-height 45     ;; sets modeline height
+      doom-modeline-bar-width 5   ;; sets right bar width
       doom-modeline-persp-name t  ;; adds perspective name to modeline
       doom-modeline-persp-icon t  ;; adds folder icon next to persp name when set to t
       doom-modeline-buffer-file-name-style 'truncate-upto-project ;; almost full path to file
