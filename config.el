@@ -1,8 +1,8 @@
 (setq doom-theme 'doom-one)
 
-(setq doom-font (font-spec :family "Iosevka" :size 23 :weight 'medium)
+(setq doom-font (font-spec :family "Iosevka" :size 27 :weight 'light)
       doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 15 :weight 'light)
-      doom-big-font (font-spec :family "Iosevka" :size 28))
+      doom-big-font (font-spec :family "Iosevka" :size 30))
 
 (after! doom-themes
   (setq doom-themes-enable-bold t
@@ -51,13 +51,13 @@
 (after! org
   (setq inhibit-compacting-font-caches t)
   (custom-set-faces
-    '(org-level-1 ((t (:inherit outline-1 :height 1.7))))
-    '(org-level-2 ((t (:inherit outline-2 :height 1.6))))
-    '(org-level-3 ((t (:inherit outline-3 :height 1.5))))
-    '(org-level-4 ((t (:inherit outline-4 :height 1.4))))
-    '(org-level-5 ((t (:inherit outline-5 :height 1.3))))
-    '(org-level-6 ((t (:inherit outline-6 :height 1.2))))
-    '(org-level-7 ((t (:inherit outline-7 :height 1.1))))
+    '(org-level-1 ((t (:inherit outline-1 :height 1.6))))
+    '(org-level-2 ((t (:inherit outline-2 :height 1.5))))
+    '(org-level-3 ((t (:inherit outline-3 :height 1.4))))
+    '(org-level-4 ((t (:inherit outline-4 :height 1.3))))
+    '(org-level-5 ((t (:inherit outline-5 :height 1.2))))
+    '(org-level-6 ((t (:inherit outline-6 :height 1.1))))
+    '(org-level-7 ((t (:inherit outline-7 :height 1.0))))
     '(org-level-8 ((t (:inherit outline-8 :height 1.0)))))
   (setq org-directory "c:/Users/N I T R O 5/Documents/Org/"
         org-default-notes-file (expand-file-name "notes.org" org-directory)
@@ -77,8 +77,7 @@
         org-log-done 'time
         org-log-into-drawer t))
 
-(set-face-attribute 'mode-line nil :font "JetBrains Mono")
-(setq doom-modeline-height 45     ;; sets modeline height
+(setq doom-modeline-height 50
       doom-modeline-bar-width 5   ;; sets right bar width
       doom-modeline-persp-name t  ;; adds perspective name to modeline
       doom-modeline-persp-icon t  ;; adds folder icon next to persp name when set to t
