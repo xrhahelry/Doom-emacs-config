@@ -1,8 +1,8 @@
 (setq doom-theme 'doom-one)
 
-(setq doom-font (font-spec :family "JetBrains Mono" :size 20 :weight 'light)
-      doom-variable-pitch-font (font-spec :family "Iosevka" :size 15 :weight 'light)
-      doom-big-font (font-spec :family "JetBrains Mono" :size 24))
+(setq doom-font (font-spec :family "Iosevka" :size 23 :weight 'light)
+      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 15 :weight 'light)
+      doom-big-font (font-spec :family "Iosevka" :size 28))
 
 (after! doom-themes
   (setq doom-themes-enable-bold t
@@ -47,7 +47,7 @@
       :desc "Toggle tab bar" "t t" #'centaur-tabs-mode)
 
 (map! :leader
-      :desc "Org babel tangle" "m B" #'org-babel-tangle)
+      :desc "Org babel tangle" "m C-b" #'org-babel-tangle)
 (after! org
   (setq inhibit-compacting-font-caches t)
   (custom-set-faces
@@ -77,7 +77,7 @@
         org-log-done 'time
         org-log-into-drawer t))
 
-(set-face-attribute 'mode-line nil :font "Cascadia Code-15")
+(set-face-attribute 'mode-line nil :font "JetBrains Mono-17")
 (setq doom-modeline-height 40     ;; sets modeline height
       doom-modeline-bar-width 6   ;; sets right bar width
       doom-modeline-persp-name t  ;; adds perspective name to modeline
