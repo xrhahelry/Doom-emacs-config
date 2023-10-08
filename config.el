@@ -1,6 +1,6 @@
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-spacegrey)
 
-(setq doom-font (font-spec :family "Iosevka" :size 27 :weight 'light)
+(setq doom-font (font-spec :family "Iosevka" :size 26 :weight 'light)
       doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 15 :weight 'light)
       doom-big-font (font-spec :family "Iosevka" :size 30))
 
@@ -44,7 +44,13 @@
       :desc "Switch buffers" "b ." #'ivy-switch-buffer)
 
 (map! :leader
-      :desc "Toggle tab bar" "t t" #'centaur-tabs-mode)
+      :desc "Toggle org side tree" "m TAB" #'org-side-tree-toggle)
+
+(map! :leader
+      (:prefix ("j" . "Ace Jump")
+       :desc "Jump to char" "c" #'ace-jump-char-mode
+       :desc "Jump to word" "w" #'ace-jump-word-mode
+       :desc "Jump to line" "l" #'ace-jump-line-mode))
 
 (map! :leader
       :desc "Org babel tangle" "m C-b" #'org-babel-tangle)
@@ -101,7 +107,8 @@
   :custom
   (display-time-default-load-average nil))
 
-(use-package battery :ensure nil
+(use-package battery
+  :ensure nil
   :hook (after-init . display-battery-mode))
 
 (map! :leader
@@ -141,5 +148,3 @@
   (kbd "* /") 'dired-mark-directories
   (kbd "; d") 'epa-dired-do-decrypt
   (kbd "; e") 'epa-dired-do-encrypt)
-
-(map! "C-;" #'smex)
