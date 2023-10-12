@@ -1,6 +1,6 @@
-(setq doom-theme 'doom-spacegrey)
+(setq doom-theme 'doom-nord)
 
-(setq doom-font (font-spec :family "Iosevka" :size 26 :weight 'light)
+(setq doom-font (font-spec :family "Iosevka" :size 26 :weight 'medium)
       doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 15 :weight 'light)
       doom-big-font (font-spec :family "Iosevka" :size 30))
 
