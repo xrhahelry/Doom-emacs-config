@@ -1,4 +1,3 @@
-(package! gruber-darker-theme)
 (package! org-auto-tangle)
 (package! ace-jump-mode)
 

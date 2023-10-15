@@ -17,7 +17,6 @@
   - [[#comment-or-uncomment-lines][Comment or Uncomment lines]]
   - [[#word-wrapping-in-org-mode][Word wrapping in org mode]]
   - [[#switch-buffers][Switch buffers]]
-  - [[#org-side-tree][Org Side Tree]]
   - [[#ace-jump-mode][Ace jump mode]]
 - [[#org][Org]]
   - [[#basic-config][Basic Config]]
@@ -110,12 +109,6 @@
 #+begin_src emacs-lisp
 (map! :leader
       :desc "Switch buffers" "b ." #'ivy-switch-buffer)
-#+end_src
-
-** Org Side Tree
-#+begin_src emacs-lisp
-(map! :leader
-      :desc "Toggle org side tree" "m TAB" #'org-side-tree-toggle)
 #+end_src
 
 ** Ace jump mode
