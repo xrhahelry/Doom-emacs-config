@@ -34,7 +34,7 @@
 * Editor
 ** Theme
 #+begin_src emacs-lisp
-(setq doom-theme 'doom-nord)
+(setq doom-theme 'doom-one)
 #+end_src
 
 ** Font
@@ -56,13 +56,13 @@
 
 ** Cursor
 #+begin_src emacs-lisp
-(setq evil-default-cursor       'box
-      evil-normal-state-cursor  'box
-      evil-emacs-state-cursor   'box
-      evil-motion-state-cursor  'box
-      evil-insert-state-cursor  'box
-      evil-visual-state-cursor  'box
-      evil-replace-state-cursor 'box)
+;; (setq evil-default-cursor       'box
+;;       evil-normal-state-cursor  'box
+;;       evil-emacs-state-cursor   'box
+;;       evil-motion-state-cursor  'box
+;;       evil-insert-state-cursor  'box
+;;       evil-visual-state-cursor  'box
+;;       evil-replace-state-cursor 'box)
 #+end_src
 
 ** Line Numbers
@@ -169,7 +169,7 @@
 ** Doom modeline configs
 #+begin_src emacs-lisp
 (setq doom-modeline-height 50
-      doom-modeline-bar-width 5   ;; sets right bar width
+      doom-modeline-bar-width 1   ;; sets right bar width
       doom-modeline-persp-name t  ;; adds perspective name to modeline
       doom-modeline-persp-icon t  ;; adds folder icon next to persp name when set to t
       doom-modeline-buffer-file-name-style 'truncate-upto-project ;; almost full path to file

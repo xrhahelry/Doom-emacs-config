@@ -1,4 +1,4 @@
-(setq doom-theme 'doom-nord)
+(setq doom-theme 'doom-one)
 
 (setq doom-font (font-spec :family "Iosevka" :size 26 :weight 'medium)
       doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 15 :weight 'light)
@@ -11,13 +11,13 @@
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic))
 
-(setq evil-default-cursor       'box
-      evil-normal-state-cursor  'box
-      evil-emacs-state-cursor   'box
-      evil-motion-state-cursor  'box
-      evil-insert-state-cursor  'box
-      evil-visual-state-cursor  'box
-      evil-replace-state-cursor 'box)
+;; (setq evil-default-cursor       'box
+;;       evil-normal-state-cursor  'box
+;;       evil-emacs-state-cursor   'box
+;;       evil-motion-state-cursor  'box
+;;       evil-insert-state-cursor  'box
+;;       evil-visual-state-cursor  'box
+;;       evil-replace-state-cursor 'box)
 
 (setq display-line-numbers-type 'relative)
 
@@ -42,9 +42,6 @@
 
 (map! :leader
       :desc "Switch buffers" "b ." #'ivy-switch-buffer)
-
-(map! :leader
-      :desc "Toggle org side tree" "m TAB" #'org-side-tree-toggle)
 
 (map! :leader
       (:prefix ("j" . "Ace Jump")
@@ -84,7 +81,7 @@
         org-log-into-drawer t))
 
 (setq doom-modeline-height 50
-      doom-modeline-bar-width 5   ;; sets right bar width
+      doom-modeline-bar-width 1   ;; sets right bar width
       doom-modeline-persp-name t  ;; adds perspective name to modeline
       doom-modeline-persp-icon t  ;; adds folder icon next to persp name when set to t
       doom-modeline-buffer-file-name-style 'truncate-upto-project ;; almost full path to file
