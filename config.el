@@ -1,4 +1,4 @@
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-material-dark)
 
 (setq doom-font (font-spec :family "Iosevka" :size 26 :weight 'medium)
       doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 15 :weight 'light)
