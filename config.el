@@ -11,17 +11,9 @@
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic))
 
-;; (setq evil-default-cursor       'box
-;;       evil-normal-state-cursor  'box
-;;       evil-emacs-state-cursor   'box
-;;       evil-motion-state-cursor  'box
-;;       evil-insert-state-cursor  'box
-;;       evil-visual-state-cursor  'box
-;;       evil-replace-state-cursor 'box)
+(setq display-line-numbers-type t)
 
-(setq display-line-numbers-type 'relative)
-
-(setq-default tab-width 2)
+(setq-default tab-width 4)
 (setq-default evil-shift-width tab-width)
 
 (defun prefer-horizontal-split ()
@@ -71,14 +63,6 @@
 (add-hook 'org-mode-hook
       (lambda ()
         (toggle-truncate-lines nil)))
-
-(after! org
-  (setq org-startup-with-inline-images t))
-
-(after! org
-  (setq org-agenda-files '("c:/Users/N I T R O 5/Documents/Org/agenda.org")
-        org-log-done 'time
-        org-log-into-drawer t))
 
 (setq doom-modeline-height 50
       doom-modeline-bar-width 1   ;; sets right bar width

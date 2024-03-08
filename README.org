@@ -20,8 +20,6 @@
 - [[#org][Org]]
   - [[#basic-config][Basic Config]]
   - [[#word-wrapping-in-source-blocks][Word wrapping in source blocks]]
-  - [[#inline-images][Inline images]]
-  - [[#org-agenda][Org Agenda]]
 - [[#modeline][Modeline]]
   - [[#doom-modeline-configs][Doom modeline configs]]
   - [[#clock][Clock]]
@@ -55,12 +53,12 @@
 
 ** Line Numbers
 #+begin_src emacs-lisp
-(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-type t)
 #+end_src
 
 ** Tab size
 #+begin_src emacs-lisp
-(setq-default tab-width 2)
+(setq-default tab-width 4)
 (setq-default evil-shift-width tab-width)
 #+end_src
 
@@ -137,21 +135,6 @@
       (lambda ()
         (toggle-truncate-lines nil)))
 #+end_src
-
-** Inline images
-#+begin_src emacs-lisp
-(after! org
-  (setq org-startup-with-inline-images t))
-#+end_src
-
-** Org Agenda
-#+begin_src emacs-lisp
-(after! org
-  (setq org-agenda-files '("c:/Users/N I T R O 5/Documents/Org/agenda.org")
-        org-log-done 'time
-        org-log-into-drawer t))
-#+end_src
-
 
 * Modeline
 ** Doom modeline configs
@@ -235,4 +218,3 @@
   (kbd "; d") 'epa-dired-do-decrypt
   (kbd "; e") 'epa-dired-do-encrypt)
 #+end_src
-
