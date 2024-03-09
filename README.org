@@ -15,15 +15,13 @@
   - [[#line-start-or-end][Line start or end]]
   - [[#comment-or-uncomment-lines][Comment or Uncomment lines]]
   - [[#word-wrapping-in-org-mode][Word wrapping in org mode]]
-  - [[#switch-buffers][Switch buffers]]
-  - [[#ace-jump-mode][Ace jump mode]]
 - [[#org][Org]]
   - [[#basic-config][Basic Config]]
   - [[#word-wrapping-in-source-blocks][Word wrapping in source blocks]]
 - [[#modeline][Modeline]]
   - [[#doom-modeline-configs][Doom modeline configs]]
   - [[#clock][Clock]]
-  - [[#battey][Battey]]
+  - [[#battery][Battery]]
 - [[#dired][Dired]]
   - [[#basic-dired-config][Basic dired config]]
   - [[#evil-dired-keybindings][Evil dired keybindings]]
@@ -91,21 +89,6 @@
       :desc "Toggle word wrap in org" "m w" #'toggle-truncate-lines)
 #+end_src
 
-** Switch buffers
-#+begin_src emacs-lisp
-(map! :leader
-      :desc "Switch buffers" "b ." #'ivy-switch-buffer)
-#+end_src
-
-** Ace jump mode
-#+begin_src emacs-lisp
-(map! :leader
-      (:prefix ("j" . "Ace Jump")
-       :desc "Jump to char" "c" #'ace-jump-char-mode
-       :desc "Jump to word" "w" #'ace-jump-word-mode
-       :desc "Jump to line" "l" #'ace-jump-line-mode))
-#+end_src
-
 * Org
 ** Basic Config
 #+begin_src emacs-lisp
@@ -122,9 +105,7 @@
     '(org-level-6 ((t (:inherit outline-6 :height 1.1))))
     '(org-level-7 ((t (:inherit outline-7 :height 1.0))))
     '(org-level-8 ((t (:inherit outline-8 :height 1.0)))))
-  (setq org-directory "c:/Users/N I T R O 5/Documents/Org/"
-        org-default-notes-file (expand-file-name "notes.org" org-directory)
-        org-ellipsis " ▼"
+  (setq org-ellipsis " ▼"
         org-superstar-headline-bullets-list '("◉" "●" "◆" "○" "●" "◆" "○")
         org-superstar-item-bullet-alist '((?+ . ?✦) (?- . ?➤))))
 #+end_src
@@ -167,7 +148,7 @@
   (display-time-default-load-average nil))
 #+end_src
 
-** Battey
+** Battery
 #+begin_src emacs-lisp
 (use-package battery
   :ensure nil

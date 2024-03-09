@@ -33,15 +33,6 @@
       :desc "Toggle word wrap in org" "m w" #'toggle-truncate-lines)
 
 (map! :leader
-      :desc "Switch buffers" "b ." #'ivy-switch-buffer)
-
-(map! :leader
-      (:prefix ("j" . "Ace Jump")
-       :desc "Jump to char" "c" #'ace-jump-char-mode
-       :desc "Jump to word" "w" #'ace-jump-word-mode
-       :desc "Jump to line" "l" #'ace-jump-line-mode))
-
-(map! :leader
       :desc "Org babel tangle" "m C-b" #'org-babel-tangle)
 (after! org
   (setq inhibit-compacting-font-caches t)
@@ -54,9 +45,7 @@
     '(org-level-6 ((t (:inherit outline-6 :height 1.1))))
     '(org-level-7 ((t (:inherit outline-7 :height 1.0))))
     '(org-level-8 ((t (:inherit outline-8 :height 1.0)))))
-  (setq org-directory "c:/Users/N I T R O 5/Documents/Org/"
-        org-default-notes-file (expand-file-name "notes.org" org-directory)
-        org-ellipsis " ▼"
+  (setq org-ellipsis " ▼"
         org-superstar-headline-bullets-list '("◉" "●" "◆" "○" "●" "◆" "○")
         org-superstar-item-bullet-alist '((?+ . ?✦) (?- . ?➤))))
 
